@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediGuide - Advanced Medicine Recommendation System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_uwR49z.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        <h2>MediGuide</h2>
+        <p>Loading your health companion...</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="logo">
+            <img src="images/logo.png" alt="MediGuide Logo" class="logo-img">
+            <span>MediGuide</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#diagnosis"><i class="fas fa-stethoscope"></i> Diagnosis</a></li>
+            <li><a href="#medications"><i class="fas fa-pills"></i> Medications</a></li>
+            <li><a href="#diet"><i class="fas fa-apple-alt"></i> Diet</a></li>
+            <li><a href="#precautions"><i class="fas fa-shield-alt"></i> Precautions</a></li>
+            <li><a href="#workouts"><i class="fas fa-dumbbell"></i> Workouts</a></li>
+            <li><a href="#analysis"><i class="fas fa-chart-line"></i> Analysis</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+        </ul>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1 class="animate-text">Your Personal Health Assistant</h1>
+                    <p class="animate-text-delay">Get personalized medicine recommendations, diet plans, and health insights based on your symptoms.</p>
+                    <div class="cta-buttons">
+                        <a href="#diagnosis" class="btn primary-btn animate-btn">Start Diagnosis</a>
+                        <a href="#about" class="btn secondary-btn animate-btn-delay">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+                </div>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Accurate Diagnosis</h3>
+                    <p>Advanced symptom analysis for precise disease prediction</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Medication Guide</h3>
+                    <p>Personalized medication recommendations based on your condition</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Diet Plans</h3>
+                    <p>Customized nutrition advice to support your recovery</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Workout Regimens</h3>
+                    <p>Tailored exercise recommendations for optimal health</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagnosis Section -->
+        <section id="diagnosis" class="section">
+            <div class="section-header">
+                <h2>Symptom-Based Diagnosis</h2>
+                <p>Select your symptoms to get a preliminary diagnosis</p>
+            </div>
+            <div class="diagnosis-container">
+                <div class="symptom-selector">
+                    <h3>Select Your Symptoms</h3>
+                    <div class="search-box">
+                        <input type="text" id="symptom-search" placeholder="Search symptoms...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="symptoms-list">
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-1" class="symptom-checkbox">
+                            <label for="symptom-1">Fever</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-2" class="symptom-checkbox">
+                            <label for="symptom-2">Headache</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-3" class="symptom-checkbox">
+                            <label for="symptom-3">Cough</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-4" class="symptom-checkbox">
+                            <label for="symptom-4">Fatigue</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-5" class="symptom-checkbox">
+                            <label for="symptom-5">Nausea</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-6" class="symptom-checkbox">
+                            <label for="symptom-6">Dizziness</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-7" class="symptom-checkbox">
+                            <label for="symptom-7">Chest Pain</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-8" class="symptom-checkbox">
+                            <label for="symptom-8">Shortness of Breath</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-9" class="symptom-checkbox">
+                            <label for="symptom-9">Abdominal Pain</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-10" class="symptom-checkbox">
+                            <label for="symptom-10">Joint Pain</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-11" class="symptom-checkbox">
+                            <label for="symptom-11">Runny Nose</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-12" class="symptom-checkbox">
+                            <label for="symptom-12">Sore Throat</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-13" class="symptom-checkbox">
+                            <label for="symptom-13">Sneezing</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-14" class="symptom-checkbox">
+                            <label for="symptom-14">Body Aches</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-15" class="symptom-checkbox">
+                            <label for="symptom-15">Chills</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-16" class="symptom-checkbox">
+                            <label for="symptom-16">Sensitivity to Light</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-17" class="symptom-checkbox">
+                            <label for="symptom-17">Sensitivity to Sound</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-18" class="symptom-checkbox">
+                            <label for="symptom-18">Vomiting</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-19" class="symptom-checkbox">
+                            <label for="symptom-19">Visual Disturbances</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-20" class="symptom-checkbox">
+                            <label for="symptom-20">Diarrhea</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-21" class="symptom-checkbox">
+                            <label for="symptom-21">Dehydration</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-22" class="symptom-checkbox">
+                            <label for="symptom-22">Chest Pain when Breathing</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-23" class="symptom-checkbox">
+                            <label for="symptom-23">Rapid Breathing</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-24" class="symptom-checkbox">
+                            <label for="symptom-24">Confusion</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-25" class="symptom-checkbox">
+                            <label for="symptom-25">Pain in Left Arm</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-33" class="symptom-checkbox">
+                            <label for="symptom-33">Heartburn</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-38" class="symptom-checkbox">
+                            <label for="symptom-38">Wheezing</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-41" class="symptom-checkbox">
+                            <label for="symptom-41">Burning during Urination</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-45" class="symptom-checkbox">
+                            <label for="symptom-45">Facial Pain/Pressure</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-51" class="symptom-checkbox">
+                            <label for="symptom-51">Increased Thirst</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-52" class="symptom-checkbox">
+                            <label for="symptom-52">Frequent Urination</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-58" class="symptom-checkbox">
+                            <label for="symptom-58">Itchy/Watery Eyes</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-60" class="symptom-checkbox">
+                            <label for="symptom-60">Persistent Sadness</label>
+                        </div>
+                        <div class="symptom-item">
+                            <input type="checkbox" id="symptom-67" class="symptom-checkbox">
+                            <label for="symptom-67">Excessive Worry</label>
+                        </div>
+                    </div>
+                    <div class="selected-symptoms">
+                        <h4>Selected Symptoms:</h4>
+                        <ul id="selected-symptoms-list">
+                            <!-- Selected symptoms will appear here -->
+                        </ul>
+                    </div>
+                    <button id="diagnose-btn" class="btn primary-btn">Get Diagnosis</button>
+                </div>
+                <div class="diagnosis-result">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>Diagnosis Result</h3>
+                            <span class="severity-indicator">Moderate</span>
+                        </div>
+                        <div class="result-body">
+                            <div class="disease-prediction">
+                                <h4>Predicted Condition:</h4>
+                                <p id="predicted-disease">Please select symptoms to get a diagnosis</p>
+                            </div>
+                            <div class="confidence-score">
+                                <h4>Confidence Score:</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 0%;">0%</div>
+                                </div>
+                            </div>
+                            <div class="severity-assessment">
+                                <h4>Severity Assessment:</h4>
+                                <div class="severity-meter">
+                                    <div class="severity-bar low"></div>
+                                    <div class="severity-bar medium"></div>
+                                    <div class="severity-bar high"></div>
+                                    <div class="severity-bar critical"></div>
+                                </div>
+                                <p class="severity-text">Select symptoms to assess severity</p>
+                            </div>
+                        </div>
+                        <div class="result-footer">
+                            <p class="disclaimer">This is a preliminary assessment. Always consult with a healthcare professional.</p>
+                            <button id="view-recommendations-btn" class="btn secondary-btn">View Recommendations</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medications Section -->
+        <section id="medications" class="section">
+            <div class="section-header">
+                <h2>Medication Recommendations</h2>
+                <p>Personalized medication suggestions based on your diagnosis</p>
+            </div>
+            <div class="medications-container">
+                <div class="medication-filters">
+                    <div class="filter-group">
+                        <label for="medication-search">Search Medications:</label>
+                        <input type="text" id="medication-search" placeholder="Enter medication name...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="condition-filter">Filter by Condition:</label>
+                        <select id="condition-filter">
+                            <option value="all">All Conditions</option>
+                            <!-- Conditions will be loaded dynamically -->
+                        </select>
+                    </div>
+                </div>
+                <div class="medications-grid">
+                    <div class="medication-card" data-id="med1">
+                        <div class="medication-image">
+                            <img src="images/medication-placeholder.jpg" alt="Paracetamol">
+                        </div>
+                        <div class="medication-info">
+                            <h3>Paracetamol</h3>
+                            <p>Effective for fever and mild to moderate pain relief.</p>
+                            <div class="medication-tags">
+                                <span class="medication-tag">Fever</span>
+                                <span class="medication-tag">Pain Relief</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medication-card" data-id="med2">
+                        <div class="medication-image">
+                            <img src="images/medication-placeholder.jpg" alt="Ibuprofen">
+                        </div>
+                        <div class="medication-info">
+                            <h3>Ibuprofen</h3>
+                            <p>Anti-inflammatory medication for pain, fever, and inflammation.</p>
+                            <div class="medication-tags">
+                                <span class="medication-tag">Inflammation</span>
+                                <span class="medication-tag">Pain Relief</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medication-card" data-id="med3">
+                        <div class="medication-image">
+                            <img src="images/medication-placeholder.jpg" alt="Amoxicillin">
+                        </div>
+                        <div class="medication-info">
+                            <h3>Amoxicillin</h3>
+                            <p>Antibiotic used to treat bacterial infections.</p>
+                            <div class="medication-tags">
+                                <span class="medication-tag">Antibiotic</span>
+                                <span class="medication-tag">Infection</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medication-card" data-id="med4">
+                        <div class="medication-image">
+                            <img src="images/medication-placeholder.jpg" alt="Loratadine">
+                        </div>
+                        <div class="medication-info">
+                            <h3>Loratadine</h3>
+                            <p>Antihistamine for allergy symptoms relief.</p>
+                            <div class="medication-tags">
+                                <span class="medication-tag">Allergy</span>
+                                <span class="medication-tag">Antihistamine</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medication-card" data-id="med5">
+                        <div class="medication-image">
+                            <img src="images/medication-placeholder.jpg" alt="Omeprazole">
+                        </div>
+                        <div class="medication-info">
+                            <h3>Omeprazole</h3>
+                            <p>Proton pump inhibitor for acid reflux and ulcers.</p>
+                            <div class="medication-tags">
+                                <span class="medication-tag">Acid Reflux</span>
+                                <span class="medication-tag">Ulcer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medication-card" data-id="med6">
+                        <div class="medication-image">
+                            <img src="images/medication-placeholder.jpg" alt="Salbutamol">
+                        </div>
+                        <div class="medication-info">
+                            <h3>Salbutamol</h3>
+                            <p>Bronchodilator for asthma and COPD symptoms.</p>
+                            <div class="medication-tags">
+                                <span class="medication-tag">Asthma</span>
+                                <span class="medication-tag">Bronchodilator</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="medication-details">
+                    <div class="details-card">
+                        <div class="details-header">
+                            <h3>Medication Details</h3>
+                            <button class="close-details"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="details-body">
+                            <div class="medication-image">
+                                <i class="fas fa-pills fa-4x"></i>
+                                <div class="medication-details-recommended" style="display: none;">Recommended</div>
+                            </div>
+                            <div class="medication-info">
+                                <h4 id="medication-name">Select a medication</h4>
+                                <p id="medication-description">Detailed information about the selected medication will appear here.</p>
+                                <div class="dosage-info">
+                                    <h5>Recommended Dosage:</h5>
+                                    <p id="medication-dosage">N/A</p>
+                                </div>
+                                <div class="side-effects">
+                                    <h5>Possible Side Effects:</h5>
+                                    <ul id="side-effects-list">
+                                        <li>No information available</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="details-footer">
+                            <p class="disclaimer">Always consult with a healthcare professional before taking any medication.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diet Section -->
+        <section id="diet" class="section">
+            <div class="section-header">
+                <h2>Diet Recommendations</h2>
+                <p>Customized nutrition plans to support your health</p>
+            </div>
+            <div class="diet-container">
+                <div class="diet-plan">
+                    <h3>Recommended Diet Plan</h3>
+                    <div class="diet-tabs">
+                        <button class="diet-tab active" data-tab="general">General</button>
+                        <button class="diet-tab" data-tab="breakfast">Breakfast</button>
+                        <button class="diet-tab" data-tab="lunch">Lunch</button>
+                        <button class="diet-tab" data-tab="dinner">Dinner</button>
+                        <button class="diet-tab" data-tab="snacks">Snacks</button>
+                    </div>
+                    <div class="diet-content">
+                        <div class="diet-tab-content active" id="general-content">
+                            <div class="diet-stats-grid">
+                                <div class="diet-stat-box expandable" id="recommendations-box">
+                                    <div class="stat-box-header">
+                                        <h4>General Recommendations</h4>
+                                        <button class="expand-btn"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                    <div class="stat-box-content">
+                                        <ul id="diet-recommendations-list">
+                                            <li>Increase intake of fresh fruits and vegetables rich in antioxidants</li>
+                                            <li>Consume lean proteins like chicken, fish, and legumes</li>
+                                            <li>Include whole grains such as brown rice, quinoa, and oats</li>
+                                            <li>Limit processed foods, sugary drinks, and excessive salt</li>
+                                            <li>Stay hydrated with at least 8 glasses of water daily</li>
+                                            <li>Include probiotic foods like yogurt and fermented vegetables</li>
+                                            <li>Consume healthy fats from sources like avocados, nuts, and olive oil</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="diet-stat-box expandable" id="nutrient-box">
+                                    <div class="stat-box-header">
+                                        <h4>Nutrient Distribution</h4>
+                                        <button class="expand-btn"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                    <div class="stat-box-content">
+                                        <canvas id="nutrient-chart"></canvas>
+                                    </div>
+                                </div>
+                                
+                                <div class="diet-stat-box expandable" id="calorie-box">
+                                    <div class="stat-box-header">
+                                        <h4>Calorie Breakdown</h4>
+                                        <button class="expand-btn"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                    <div class="stat-box-content">
+                                        <canvas id="calorie-chart"></canvas>
+                                    </div>
+                                </div>
+                                
+                                <div class="diet-stat-box expandable" id="vitamin-box">
+                                    <div class="stat-box-header">
+                                        <h4>Vitamin & Mineral Needs</h4>
+                                        <button class="expand-btn"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                    <div class="stat-box-content">
+                                        <canvas id="vitamin-chart"></canvas>
+                                    </div>
+                                </div>
+                                
+                                <div class="diet-stat-box expandable" id="hydration-box">
+                                    <div class="stat-box-header">
+                                        <h4>Hydration Guide</h4>
+                                        <button class="expand-btn"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                    <div class="stat-box-content">
+                                        <div class="hydration-meter">
+                                            <div class="water-level" style="height: 70%;"></div>
+                                            <div class="water-marks">
+                                                <span class="mark" style="bottom: 25%;">2L</span>
+                                                <span class="mark" style="bottom: 50%;">1.5L</span>
+                                                <span class="mark" style="bottom: 75%;">1L</span>
+                                            </div>
+                                        </div>
+                                        <p>Recommended daily water intake: <strong>2-3 liters</strong></p>
+                                    </div>
+                                </div>
+                                
+                                <div class="diet-stat-box expandable" id="meal-timing-box">
+                                    <div class="stat-box-header">
+                                        <h4>Optimal Meal Timing</h4>
+                                        <button class="expand-btn"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                    <div class="stat-box-content">
+                                        <div class="meal-timing-chart">
+                                            <div class="time-slot">
+                                                <span class="time">7-8 AM</span>
+                                                <span class="meal">Breakfast</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time">10-11 AM</span>
+                                                <span class="meal">Mid-morning Snack</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time">1-2 PM</span>
+                                                <span class="meal">Lunch</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time">4-5 PM</span>
+                                                <span class="meal">Evening Snack</span>
+                                            </div>
+                                            <div class="time-slot">
+                                                <span class="time">7-8 PM</span>
+                                                <span class="meal">Dinner</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="diet-tab-content" id="breakfast-content">
+                            <div class="meal-suggestions">
+                                <h4>Breakfast Suggestions</h4>
+                                <div class="meal-cards">
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Oatmeal with Fruits">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Oatmeal with Fruits</h5>
+                                            <p>Rich in fiber and antioxidants</p>
+                                        </div>
+                                    </div>
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Greek Yogurt Parfait">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Greek Yogurt Parfait</h5>
+                                            <p>High protein with probiotics</p>
+                                        </div>
+                                    </div>
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Vegetable Omelette">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Vegetable Omelette</h5>
+                                            <p>Protein-rich with essential nutrients</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="diet-tab-content" id="lunch-content">
+                            <div class="meal-suggestions">
+                                <h4>Lunch Suggestions</h4>
+                                <div class="meal-cards">
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Quinoa Salad">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Quinoa Salad</h5>
+                                            <p>Complete protein with vegetables</p>
+                                        </div>
+                                    </div>
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Grilled Chicken Wrap">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Grilled Chicken Wrap</h5>
+                                            <p>Lean protein with whole grains</p>
+                                        </div>
+                                    </div>
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Lentil Soup">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Lentil Soup</h5>
+                                            <p>Plant-based protein and fiber</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="diet-tab-content" id="dinner-content">
+                            <div class="meal-suggestions">
+                                <h4>Dinner Suggestions</h4>
+                                <div class="meal-cards">
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Baked Salmon">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Baked Salmon</h5>
+                                            <p>Rich in omega-3 fatty acids</p>
+                                        </div>
+                                    </div>
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Vegetable Stir-Fry">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Vegetable Stir-Fry</h5>
+                                            <p>Low-calorie with high nutrients</p>
+                                        </div>
+                                    </div>
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Turkey Meatballs">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Turkey Meatballs</h5>
+                                            <p>Lean protein with herbs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="diet-tab-content" id="snacks-content">
+                            <div class="meal-suggestions">
+                                <h4>Healthy Snack Options</h4>
+                                <div class="meal-cards">
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Mixed Nuts">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Mixed Nuts</h5>
+                                            <p>Healthy fats and protein</p>
+                                        </div>
+                                    </div>
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Apple with Almond Butter">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Apple with Almond Butter</h5>
+                                            <p>Fiber and healthy fats</p>
+                                        </div>
+                                    </div>
+                                    <div class="meal-card">
+                                        <div class="meal-image">
+                                            <img src="images/food-placeholder.jpg" alt="Greek Yogurt">
+                                        </div>
+                                        <div class="meal-info">
+                                            <h5>Greek Yogurt</h5>
+                                            <p>Protein and probiotics</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="foods-to-avoid">
+                    <h3>Foods to Avoid</h3>
+                    <div class="avoid-foods-list">
+                        <div class="avoid-food-item">
+                            <div class="avoid-food-icon">
+                                <i class="fas fa-candy-cane"></i>
+                            </div>
+                            <p>Sugary Foods</p>
+                        </div>
+                        <div class="avoid-food-item">
+                            <div class="avoid-food-icon">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                            <p>Processed Meats</p>
+                        </div>
+                        <div class="avoid-food-item">
+                            <div class="avoid-food-icon">
+                                <i class="fas fa-pizza-slice"></i>
+                            </div>
+                            <p>Fast Food</p>
+                        </div>
+                        <div class="avoid-food-item">
+                            <div class="avoid-food-icon">
+                                <i class="fas fa-wine-bottle"></i>
+                            </div>
+                            <p>Alcohol</p>
+                        </div>
+                        <div class="avoid-food-item">
+                            <div class="avoid-food-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <p>Caffeine</p>
+                        </div>
+                        <div class="avoid-food-item">
+                            <div class="avoid-food-icon">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                            <p>Refined Grains</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Precautions Section -->
+        <section id="precautions" class="section">
+            <div class="section-header">
+                <h2>Recommended Precautions</h2>
+                <p>Essential preventive measures for your condition</p>
+            </div>
+            <div class="precautions-container">
+                <div class="precautions-list">
+                    <div class="precaution-item">
+                        <div class="precaution-icon">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <div class="precaution-content">
+                            <h4>Maintain Hand Hygiene</h4>
+                            <p>Wash hands frequently with soap and water for at least 20 seconds, especially before eating and after using the bathroom.</p>
+                        </div>
+                    </div>
+                    <div class="precaution-item">
+                        <div class="precaution-icon">
+                            <i class="fas fa-head-side-mask"></i>
+                        </div>
+                        <div class="precaution-content">
+                            <h4>Wear Protective Masks</h4>
+                            <p>Use masks in crowded places to prevent airborne transmission of infectious agents.</p>
+                        </div>
+                    </div>
+                    <div class="precaution-item">
+                        <div class="precaution-icon">
+                            <i class="fas fa-people-arrows"></i>
+                        </div>
+                        <div class="precaution-content">
+                            <h4>Maintain Social Distance</h4>
+                            <p>Keep at least 6 feet distance from others, especially those showing symptoms of illness.</p>
+                        </div>
+                    </div>
+                    <div class="precaution-item">
+                        <div class="precaution-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="precaution-content">
+                            <h4>Adequate Rest</h4>
+                            <p>Ensure 7-8 hours of quality sleep to boost immune function and aid recovery.</p>
+                        </div>
+                    </div>
+                    <div class="precaution-item">
+                        <div class="precaution-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="precaution-content">
+                            <h4>Stay Hydrated</h4>
+                            <p>Drink at least 8-10 glasses of water daily to maintain proper bodily functions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="precaution-details">
+                    <h3>Why These Precautions Matter</h3>
+                    <p>Following these precautions can significantly improve your recovery and prevent complications.</p>
+                    <div class="precaution-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Recovery Rate</h4>
+                                <p>Increases by up to <span class="highlight">65%</span></p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Recovery Time</h4>
+                                <p>Reduces by <span class="highlight">40%</span> on average</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Recurrence Risk</h4>
+                                <p>Decreases by <span class="highlight">75%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workouts Section -->
+        <section id="workouts" class="section">
+            <div class="section-header">
+                <h2>Workout Recommendations</h2>
+                <p>Personalized exercise plans for your condition</p>
+            </div>
+            <div class="workouts-container">
+                <div class="workout-filters">
+                    <div class="filter-group">
+                        <label for="intensity-filter">Intensity Level:</label>
+                        <select id="intensity-filter">
+                            <option value="all">All Levels</option>
+                            <option value="low">Low Impact</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="high">High Intensity</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="duration-filter">Duration:</label>
+                        <select id="duration-filter">
+                            <option value="all">All Durations</option>
+                            <option value="short">Short (5-15 min)</option>
+                            <option value="medium">Medium (15-30 min)</option>
+                            <option value="long">Long (30+ min)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="workout-plans">
+                    <div class="workout-card" data-id="1" data-intensity="low" data-duration="short">
+                        <div class="workout-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3RyZXRjaGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Gentle Stretching">
+                            <div class="workout-duration">10 min</div>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Gentle Stretching</h3>
+                            <div class="workout-meta">
+                                <span><i class="fas fa-fire"></i> Low Impact</span>
+                                <span><i class="fas fa-clock"></i> 10 min</span>
+                            </div>
+                            <p>Easy stretching routine to improve flexibility and reduce stiffness.</p>
+                            <div class="workout-tags">
+                                <span class="workout-tag">Flexibility</span>
+                                <span class="workout-tag">Recovery</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workout-card" data-id="2" data-intensity="moderate" data-duration="medium">
+                        <div class="workout-image">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Yoga Flow">
+                            <div class="workout-duration">20 min</div>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Yoga Flow</h3>
+                            <div class="workout-meta">
+                                <span><i class="fas fa-fire"></i> Moderate</span>
+                                <span><i class="fas fa-clock"></i> 20 min</span>
+                            </div>
+                            <p>Gentle yoga sequence focusing on breathing and stress reduction.</p>
+                            <div class="workout-tags">
+                                <span class="workout-tag">Stress Relief</span>
+                                <span class="workout-tag">Balance</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workout-card" data-id="3" data-intensity="moderate" data-duration="medium">
+                        <div class="workout-image">
+                            <img src="https://images.unsplash.com/photo-1434596922112-19c563067271?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2Fsa2luZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Brisk Walking">
+                            <div class="workout-duration">25 min</div>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Brisk Walking</h3>
+                            <div class="workout-meta">
+                                <span><i class="fas fa-fire"></i> Moderate</span>
+                                <span><i class="fas fa-clock"></i> 25 min</span>
+                            </div>
+                            <p>Outdoor walking routine to improve cardiovascular health.</p>
+                            <div class="workout-tags">
+                                <span class="workout-tag">Cardio</span>
+                                <span class="workout-tag">Outdoor</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workout-card" data-id="4" data-intensity="high" data-duration="medium">
+                        <div class="workout-image">
+                            <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29ya291dHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="HIIT Workout">
+                            <div class="workout-duration">20 min</div>
+                        </div>
+                        <div class="workout-info">
+                            <h3>HIIT Workout</h3>
+                            <div class="workout-meta">
+                                <span><i class="fas fa-fire"></i> High Intensity</span>
+                                <span><i class="fas fa-clock"></i> 20 min</span>
+                            </div>
+                            <p>High-intensity interval training for maximum calorie burn.</p>
+                            <div class="workout-tags">
+                                <span class="workout-tag">Strength</span>
+                                <span class="workout-tag">Cardio</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workout-card" data-id="5" data-intensity="low" data-duration="short">
+                        <div class="workout-image">
+                            <img src="https://images.unsplash.com/photo-1616279969856-759f14f2f316?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YnJlYXRoaW5nJTIwZXhlcmNpc2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="Breathing Exercises">
+                            <div class="workout-duration">5 min</div>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Breathing Exercises</h3>
+                            <div class="workout-meta">
+                                <span><i class="fas fa-fire"></i> Low Impact</span>
+                                <span><i class="fas fa-clock"></i> 5 min</span>
+                            </div>
+                            <p>Deep breathing techniques to reduce anxiety and improve lung function.</p>
+                            <div class="workout-tags">
+                                <span class="workout-tag">Relaxation</span>
+                                <span class="workout-tag">Respiratory</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workout-card" data-id="6" data-intensity="high" data-duration="long">
+                        <div class="workout-image">
+                            <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3dpbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="Swimming">
+                            <div class="workout-duration">45 min</div>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Swimming</h3>
+                            <div class="workout-meta">
+                                <span><i class="fas fa-fire"></i> High Intensity</span>
+                                <span><i class="fas fa-clock"></i> 45 min</span>
+                            </div>
+                            <p>Full-body workout with minimal joint impact, ideal for recovery.</p>
+                            <div class="workout-tags">
+                                <span class="workout-tag">Cardio</span>
+                                <span class="workout-tag">Full Body</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="workout-details">
+                    <div class="details-card">
+                        <div class="details-header">
+                            <h3>Workout Details</h3>
+                            <button class="close-details"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="details-body">
+                            <div class="workout-video">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3RyZXRjaGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Workout Video" id="workout-detail-image">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="workout-info">
+                                <h4 id="workout-name">Select a workout</h4>
+                                <p id="workout-description">Detailed information about the selected workout will appear here.</p>
+                                <div class="workout-steps">
+                                    <h5>Steps:</h5>
+                                    <ol id="workout-steps-list">
+                                        <li>No information available</li>
+                                    </ol>
+                                </div>
+                                <div class="workout-benefits">
+                                    <h5>Benefits:</h5>
+                                    <p>Improves cardiovascular health, increases strength and flexibility, reduces stress, and promotes better sleep.</p>
+                                </div>
+                                <div class="workout-benefits">
+                                    <h5>Benefits:</h5>
+                                    <ul id="workout-benefits-list">
+                                        <li>No information available</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="details-footer">
+                            <p class="disclaimer">Always consult with a healthcare professional before starting any exercise program.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Section -->
+        <section id="analysis" class="section">
+            <div class="section-header">
+                <h2>Health Analysis</h2>
+                <p>Comprehensive insights and statistics</p>
+            </div>
+            <div class="analysis-container">
+                <div class="analysis-filters">
+                    <div class="filter-group">
+                        <label for="analysis-type">Analysis Type:</label>
+                        <select id="analysis-type">
+                            <option value="disease">Disease Prevalence</option>
+                            <option value="symptom">Symptom Severity</option>
+                            <option value="medication">Medication Effectiveness</option>
+                            <option value="diet">Diet Impact</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="time-period">Time Period:</label>
+                        <select id="time-period">
+                            <option value="all">All Time</option>
+                            <option value="year">Past Year</option>
+                            <option value="month">Past Month</option>
+                            <option value="week">Past Week</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="analysis-charts">
+                    <div class="chart-container">
+                        <h3>Disease Prevalence</h3>
+                        <canvas id="disease-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Symptom Severity Distribution</h3>
+                        <canvas id="severity-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Recovery Rate by Treatment</h3>
+                        <canvas id="recovery-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Age Group Distribution</h3>
+                        <canvas id="age-chart"></canvas>
+                    </div>
+                </div>
+                <div class="analysis-insights">
+                    <h3>Key Insights</h3>
+                    <div class="insights-list">
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Most Common Symptoms</h4>
+                                <p>Fatigue, headache, and fever are the most frequently reported symptoms across all conditions.</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Effective Treatments</h4>
+                                <p>Combination therapies show 35% higher effectiveness compared to single medication approaches.</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Seasonal Trends</h4>
+                                <p>Respiratory conditions show a 40% increase during winter months compared to summer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2>About MediGuide</h2>
+                <p>Your trusted health companion</p>
+            </div>
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission</h3>
+                        <p>MediGuide aims to provide accessible, preliminary health guidance to users worldwide. We combine medical knowledge with technology to offer personalized recommendations for various health conditions.</p>
+                        
+                        <h3>How It Works</h3>
+                        <p>Our system analyzes your symptoms using advanced algorithms to suggest possible conditions and provide tailored recommendations for medications, diet, precautions, and exercises.</p>
+                        
+                        <h3>Important Disclaimer</h3>
+                        <p>MediGuide is designed as a supplementary tool and should not replace professional medical advice. Always consult with healthcare professionals for proper diagnosis and treatment.</p>
+                    </div>
+                    <div class="about-image">
+                        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+                    </div>
+                </div>
+                <div class="team-section">
+                    <h3>Our Team</h3>
+                    <div class="team-members">
+                        <div class="team-member">
+                            <div class="member-image">
+                                <img src="images/team-placeholder.jpg" alt="Team Member">
+                            </div>
+                            <h4>Dr. Sarah Johnson</h4>
+                            <p>Medical Director</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-image">
+                                <img src="images/team-placeholder.jpg" alt="Team Member">
+                            </div>
+                            <h4>Michael Chen</h4>
+                            <p>Lead Developer</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-image">
+                                <img src="images/team-placeholder.jpg" alt="Team Member">
+                            </div>
+                            <h4>Dr. Emily Rodriguez</h4>
+                            <p>Nutrition Specialist</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-image">
+                                <img src="images/team-placeholder.jpg" alt="Team Member">
+                            </div>
+                            <h4>James Wilson</h4>
+                            <p>Data Scientist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-section">
+                    <h3>Contact Us</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="MediGuide Logo">
+                <h3>MediGuide</h3>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#diagnosis">Diagnosis</a></li>
+                        <li><a href="#medications">Medications</a></li>
+                        <li><a href="#diet">Diet</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="#precautions">Precautions</a></li>
+                        <li><a href="#workouts">Workouts</a></li>
+                        <li><a href="#analysis">Analysis</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for the latest health tips and updates.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your Email">
+                    <button class="btn primary-btn">Subscribe</button>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 MediGuide. All rights reserved.</p>
+            <p class="disclaimer">DISCLAIMER: This system is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/diagnosis.js"></script>
+</body>
+</html>
