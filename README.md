@@ -1,4 +1,3 @@
-```markdown
 # Medicine Recommendation System
 
 A machine learning–based system that recommends medicines based on symptoms or conditions. This project demonstrates how data analysis and predictive modeling can be applied in healthcare to assist with decision-making.
